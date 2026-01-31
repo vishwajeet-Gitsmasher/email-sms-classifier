@@ -6,6 +6,15 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 import sklearn
 
+# Read your nltk.txt
+with open("nltk.txt") as f:
+    resources = [line.strip() for line in f if line.strip()]
+
+# Download each resource
+for resource in resources:
+    nltk.download(resource, quiet=True)
+
+
 ps = PorterStemmer()
 
 def transform_text(text):
